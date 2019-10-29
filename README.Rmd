@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # chkchk
 
 <!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
 The goal of {chkchk} is to determine if load-time elision is a suitable way to improve the runtime performance of packages that use assertions to check validity of their arguments.
