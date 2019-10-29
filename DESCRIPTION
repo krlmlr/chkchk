@@ -15,10 +15,9 @@ URL: https://github.com/krlmlr/poissonconsulting,
 BugReports: https://github.com/krlmlr/poissonconsulting/issues
 Imports: 
     chk,
-    defmacro,
     pkgload
 Remotes: 
-    krlmlr/defmacro@f-elide
+    poissonconsulting/chk@f-defmacro
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

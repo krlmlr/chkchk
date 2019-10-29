@@ -34,7 +34,6 @@ library(chkchk)
 
 # Both arguments must be `TRUE`...
 chkchk(FALSE, FALSE)
-#> Error: `first` must be TRUE.
 
 # ...but this isn't enforced when the package is installed.
 chkchk(TRUE, FALSE)
@@ -64,7 +63,8 @@ chkchk(TRUE, TRUE)
 chkchk:::internal
 #> function (second) 
 #> {
-#>     chk_true(second)
+#>     if (!vld_true(second)) 
+#>         abort_chk("`second`", " must be TRUE")
 #> }
 #> <environment: namespace:chkchk>
 ```

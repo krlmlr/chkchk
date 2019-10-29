@@ -7,11 +7,11 @@
 #' @param first,second Arguments
 #' @export
 chkchk <- function(first, second) {
-  elide(chk_true(first), 0)
+  chk_true(first)
   internal(second)
   invisible()
 }
 
 internal <- function(second) {
-  elide(chk_true(second), 25)
+  chk_true(second)
 }

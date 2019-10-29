@@ -1,3 +1,3 @@
 .onLoad <- function(libname, pkgname) {
-  defmacro::onload(packageName())
+  chk::onload(pkgname)
 }
