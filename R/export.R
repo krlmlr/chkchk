@@ -6,11 +6,12 @@
 #'
 #' @param first,second Arguments
 #' @export
-exported <- function(first, second) {
-  chk_true(first)
+chkchk <- function(first, second) {
+  elide(chk_true(first), 0)
   internal(second)
+  invisible()
 }
 
 internal <- function(second) {
-  chk_true(second)
+  elide(chk_true(second), 25)
 }

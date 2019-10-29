@@ -1,0 +1,64 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# chkchk
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of {chkchk} is to determine if load-time elision is a suitable way to improve the runtime performance of packages that use assertions to check validity of their arguments.
+
+## Installation
+
+You can install the released version of chkchk from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("chkchk")
+```
+
+## Example
+
+{chkchk} behaves differently depending on whether the package is loaded from an installation or using `pkgload::load_all()`.
+
+### Installed
+
+```{r installed, error = TRUE}
+library(chkchk)
+
+# Both arguments must be `TRUE`...
+chkchk(FALSE, FALSE)
+
+# ...but this isn't enforced when the package is installed.
+chkchk(TRUE, FALSE)
+chkchk(TRUE, TRUE)
+
+# Source code for the internal function that has checks for the second argument
+# which are elided on load time:
+chkchk:::internal
+```
+
+
+### Loaded
+
+```{r loaded, error = TRUE}
+pkgload::load_all()
+
+# When loaded, the check on the second argument is enforced too.
+chkchk(TRUE, FALSE)
+chkchk(TRUE, TRUE)
+
+# True source code for the internal function:
+chkchk:::internal
+```
